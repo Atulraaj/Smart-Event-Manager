@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Events</title>
+</head>
+<body>
+<main>
+    <h1>Manage Events</h1>
+
+    <p>
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a>
+        <a th:href="@{/admin/events/new}">Create Event</a>
+        <a th:href="@{/logout}">Logout</a>
+    </p>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Venue</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Capacity</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.title}">Title</td>
+            <td th:text="${event.venue}">Venue</td>
+            <td th:text="${event.startDateTime}">Start</td>
+            <td th:text="${event.endDateTime}">End</td>
+            <td th:text="${event.capacity}">Capacity</td>
+            <td>
+                <a th:href="@{/admin/events/edit/{id}(id=${event.id})}">Edit</a>
+                <a th:href="@{/admin/events/delete/{id}(id=${event.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

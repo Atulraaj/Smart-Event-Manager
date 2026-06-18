@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Events</title>
+</head>
+<body>
+<main>
+    <h1>Events</h1>
+
+    <p>
+        <a th:href="@{/user/dashboard}">User Dashboard</a>
+        <a th:href="@{/logout}">Logout</a>
+    </p>
+
+    <ul>
+        <li th:each="event : ${events}">
+            <a th:href="@{/user/events/{id}(id=${event.id})}" th:text="${event.title}">Event Title</a>
+            <span th:text="${event.venue}">Venue</span>
+        </li>
+    </ul>
+</main>
+</body>
+</html>

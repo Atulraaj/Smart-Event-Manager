@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Form</title>
+</head>
+<body>
+<main>
+    <h1 th:text="${event.id == null ? 'Create Event' : 'Edit Event'}">Event Form</h1>
+
+    <form th:action="${event.id == null ? '/admin/events' : '/admin/events/update/' + event.id}"
+          th:object="${event}"
+          method="post">
+        <div>
+            <label for="title">Title</label>
+            <input id="title" type="text" th:field="*{title}" required>
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" th:field="*{description}"></textarea>
+        </div>
+
+        <div>
+            <label for="venue">Venue</label>
+            <input id="venue" type="text" th:field="*{venue}" required>
+        </div>
+
+        <div>
+            <label for="startDateTime">Start Date and Time</label>
+            <input id="startDateTime" type="datetime-local" th:field="*{startDateTime}" required>
+        </div>
+
+        <div>
+            <label for="endDateTime">End Date and Time</label>
+            <input id="endDateTime" type="datetime-local" th:field="*{endDateTime}" required>
+        </div>
+
+        <div>
+            <label for="capacity">Capacity</label>
+            <input id="capacity" type="number" th:field="*{capacity}" min="1" required>
+        </div>
+
+        <button type="submit">Save Event</button>
+    </form>
+
+    <p>
+        <a th:href="@{/admin/events}">Back to Events</a>
+    </p>
+</main>
+</body>
+</html>

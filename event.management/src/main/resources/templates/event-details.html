@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Details</title>
+</head>
+<body>
+<main>
+    <h1 th:text="${event.title}">Event Title</h1>
+
+    <p>
+        <a th:href="@{/user/events}">Back to Events</a>
+        <a th:href="@{/logout}">Logout</a>
+    </p>
+
+    <section>
+        <p><strong>Description:</strong> <span th:text="${event.description}">Description</span></p>
+        <p><strong>Venue:</strong> <span th:text="${event.venue}">Venue</span></p>
+        <p><strong>Start:</strong> <span th:text="${event.startDateTime}">Start</span></p>
+        <p><strong>End:</strong> <span th:text="${event.endDateTime}">End</span></p>
+        <p><strong>Capacity:</strong> <span th:text="${event.capacity}">Capacity</span></p>
+    </section>
+</main>
+</body>
+</html>
