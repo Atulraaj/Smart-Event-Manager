@@ -21,6 +21,13 @@
         <p><strong>End:</strong> <span th:text="${event.endDateTime}">End</span></p>
         <p><strong>Capacity:</strong> <span th:text="${event.capacity}">Capacity</span></p>
     </section>
+
+    <p th:if="${success}" th:text="${success}"></p>
+    <p th:if="${error}" th:text="${error}"></p>
+
+    <form th:action="@{/user/events/{id}/register(id=${event.id})}" method="post">
+        <button type="submit">Register for Event</button>
+    </form>
 </main>
 </body>
 </html>

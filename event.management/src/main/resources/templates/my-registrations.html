@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Registrations</title>
+</head>
+<body>
+<main>
+    <h1>My Registrations</h1>
+
+    <p>
+        <a th:href="@{/user/dashboard}">User Dashboard</a>
+        <a th:href="@{/user/events}">View Events</a>
+        <a th:href="@{/logout}">Logout</a>
+    </p>
+
+    <p th:if="${#lists.isEmpty(registrations)}">You have not registered for any events.</p>
+
+    <table border="1" th:unless="${#lists.isEmpty(registrations)}">
+        <thead>
+        <tr>
+            <th>Event</th>
+            <th>Venue</th>
+            <th>Start</th>
+            <th>Registered At</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="registration : ${registrations}">
+            <td>
+                <a th:href="@{/user/events/{id}(id=${registration.event.id})}"
+                   th:text="${registration.event.title}">Event</a>
+            </td>
+            <td th:text="${registration.event.venue}">Venue</td>
+            <td th:text="${registration.event.startDateTime}">Start</td>
+            <td th:text="${registration.registeredAt}">Registered At</td>
+            <td th:text="${registration.status}">Status</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
