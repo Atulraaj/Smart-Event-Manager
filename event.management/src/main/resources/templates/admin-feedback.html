@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Feedback</title>
+</head>
+<body>
+<main>
+    <h1>Event Feedback</h1>
+
+    <p>
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a>
+        <a th:href="@{/logout}">Logout</a>
+    </p>
+
+    <p th:if="${#lists.isEmpty(feedbackList)}">No feedback has been submitted.</p>
+
+    <table border="1" th:unless="${#lists.isEmpty(feedbackList)}">
+        <thead>
+        <tr>
+            <th>Event</th>
+            <th>User</th>
+            <th>Rating</th>
+            <th>Comments</th>
+            <th>Submitted At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="feedback : ${feedbackList}">
+            <td th:text="${feedback.event.title}">Event</td>
+            <td th:text="${feedback.user.name}">User</td>
+            <td th:text="${feedback.rating}">Rating</td>
+            <td th:text="${feedback.comments}">Comments</td>
+            <td th:text="${feedback.submittedAt}">Submitted At</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

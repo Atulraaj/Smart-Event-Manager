@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Feedback</title>
+</head>
+<body>
+<main>
+    <h1>Feedback for <span th:text="${event.title}">Event</span></h1>
+
+    <p th:if="${error}" th:text="${error}"></p>
+
+    <form th:action="@{/user/events/{id}/feedback(id=${event.id})}" method="post">
+        <div>
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" required>
+                <option value="">Select a rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments"></textarea>
+        </div>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <p>
+        <a th:href="@{/user/registrations}">Back to My Registrations</a>
+    </p>
+</main>
+</body>
+</html>

@@ -15,6 +15,8 @@
         <a th:href="@{/logout}">Logout</a>
     </p>
 
+    <p th:if="${success}" th:text="${success}"></p>
+
     <p th:if="${#lists.isEmpty(registrations)}">You have not registered for any events.</p>
 
     <table border="1" th:unless="${#lists.isEmpty(registrations)}">
@@ -25,6 +27,7 @@
             <th>Start</th>
             <th>Registered At</th>
             <th>Status</th>
+            <th>Feedback</th>
         </tr>
         </thead>
         <tbody>
@@ -37,6 +40,15 @@
             <td th:text="${registration.event.startDateTime}">Start</td>
             <td th:text="${registration.registeredAt}">Registered At</td>
             <td th:text="${registration.status}">Status</td>
+            <td>
+                <a th:if="${registration.attendance != null and registration.attendance.present}"
+                   th:href="@{/user/events/{id}/feedback(id=${registration.event.id})}">
+                    Give Feedback
+                </a>
+                <span th:unless="${registration.attendance != null and registration.attendance.present}">
+                    Available after attendance
+                </span>
+            </td>
         </tr>
         </tbody>
     </table>
