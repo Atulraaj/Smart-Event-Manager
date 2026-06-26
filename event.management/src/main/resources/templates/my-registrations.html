@@ -96,6 +96,14 @@
             color: var(--brand-blue);
         }
 
+        .qr-image {
+            width: 120px;
+            height: 120px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #ffffff;
+        }
+
         .alert {
             border-radius: 12px;
         }
@@ -202,6 +210,7 @@
                     <th>Start</th>
                     <th>Registered At</th>
                     <th>Status</th>
+                    <th>QR Code</th>
                     <th class="text-end">Feedback</th>
                 </tr>
                 </thead>
@@ -219,6 +228,11 @@
                     </td>
                     <td>
                         <span class="badge badge-soft rounded-pill px-3 py-2" th:text="${registration.status}">Status</span>
+                    </td>
+                    <td>
+                        <img class="qr-image"
+                             th:src="@{/user/registrations/{id}/qr(id=${registration.id})}"
+                             alt="Registration QR code">
                     </td>
                     <td class="text-end">
                         <a class="btn btn-primary btn-sm"
@@ -264,6 +278,13 @@
                             Registered At
                         </dd>
                     </dl>
+
+                    <div class="mb-4">
+                        <span class="text-muted-custom fw-semibold d-block mb-2">Attendance QR Code</span>
+                        <img class="qr-image"
+                             th:src="@{/user/registrations/{id}/qr(id=${registration.id})}"
+                             alt="Registration QR code">
+                    </div>
 
                     <a class="btn btn-primary fw-semibold"
                        th:if="${registration.attendance != null and registration.attendance.present and !submittedFeedbackEventIds.contains(registration.event.id)}"

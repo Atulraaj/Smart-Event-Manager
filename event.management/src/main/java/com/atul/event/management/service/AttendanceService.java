@@ -14,11 +14,21 @@ import org.springframework.transaction.annotation.Transactional;
 public class AttendanceService {
 
     private static final String MANUAL_CHECK_IN = "MANUAL";
+    private static final String QR_CHECK_IN = "QR";
 
     private final AttendanceRepository attendanceRepository;
 
     @Transactional
     public Attendance markAttendance(Registration registration) {
+        return markAttendance(registration, MANUAL_CHECK_IN);
+    }
+
+    @Transactional
+    public Attendance markAttendanceByQRCode(Registration registration) {
+        return markAttendance(registration, QR_CHECK_IN);
+    }
+
+    private Attendance markAttendance(Registration registration, String checkInMethod) {
         if (isAttendanceMarked(registration)) {
             throw new IllegalStateException("Attendance has already been marked for this registration.");
         }
@@ -27,7 +37,7 @@ public class AttendanceService {
                 .registration(registration)
                 .present(true)
                 .checkInTime(LocalDateTime.now())
-                .checkInMethod(MANUAL_CHECK_IN)
+                .checkInMethod(checkInMethod)
                 .build();
 
         return attendanceRepository.save(attendance);
