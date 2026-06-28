@@ -52,7 +52,8 @@
             color: rgba(255, 255, 255, 0.78);
         }
 
-        .event-card {
+        .event-card,
+        .empty-card {
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: 18px;
@@ -113,7 +114,8 @@
             }
 
             .page-hero,
-            .event-card {
+            .event-card,
+            .empty-card {
                 border-radius: 16px;
             }
 
@@ -157,7 +159,13 @@
         </div>
     </section>
 
-    <section>
+    <section class="empty-card p-4 p-lg-5 text-center" th:if="${#lists.isEmpty(events)}">
+        <i class="bi bi-calendar-x text-primary fs-1"></i>
+        <h2 class="h4 fw-bold mt-3 mb-2">No events available</h2>
+        <p class="text-muted-custom mb-0">There are no events available right now.</p>
+    </section>
+
+    <section th:unless="${#lists.isEmpty(events)}">
         <div class="row g-4">
             <div class="col-md-6 col-xl-4" th:each="event : ${events}">
                 <article class="event-card h-100 p-4 d-flex flex-column">

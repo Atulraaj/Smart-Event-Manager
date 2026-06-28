@@ -194,8 +194,8 @@
 
     <section class="empty-card p-4 p-lg-5 text-center" th:if="${#lists.isEmpty(registrations)}">
         <i class="bi bi-check2-square text-primary fs-1"></i>
-        <h2 class="h4 fw-bold mt-3 mb-2">No registrations available</h2>
-        <p class="text-muted-custom mb-0">No registrations are available.</p>
+        <h2 class="h4 fw-bold mt-3 mb-2">No attendance records</h2>
+        <p class="text-muted-custom mb-0">No registrations are available for attendance yet.</p>
     </section>
 
     <section class="content-card d-none d-lg-block overflow-hidden" th:unless="${#lists.isEmpty(registrations)}">

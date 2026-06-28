@@ -41,7 +41,8 @@
 
         .page-hero,
         .content-card,
-        .event-card {
+        .event-card,
+        .empty-card {
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: 20px;
@@ -120,7 +121,8 @@
 
             .page-hero,
             .content-card,
-            .event-card {
+            .event-card,
+            .empty-card {
                 border-radius: 16px;
             }
 
@@ -173,7 +175,16 @@
         </div>
     </section>
 
-    <section class="content-card d-none d-lg-block overflow-hidden">
+    <section class="empty-card p-4 p-lg-5 text-center" th:if="${#lists.isEmpty(events)}">
+        <i class="bi bi-calendar-x text-primary fs-1"></i>
+        <h2 class="h4 fw-bold mt-3 mb-2">No events available</h2>
+        <p class="text-muted-custom mb-4">Create your first event to start accepting registrations.</p>
+        <a class="btn btn-primary btn-lg fw-semibold" th:href="@{/admin/events/new}">
+            <i class="bi bi-plus-lg me-2"></i>Create Event
+        </a>
+    </section>
+
+    <section class="content-card d-none d-lg-block overflow-hidden" th:unless="${#lists.isEmpty(events)}">
         <div class="table-responsive">
             <table class="table align-middle">
                 <thead>
@@ -209,7 +220,7 @@
         </div>
     </section>
 
-    <section class="d-lg-none">
+    <section class="d-lg-none" th:unless="${#lists.isEmpty(events)}">
         <div class="row g-3">
             <div class="col-12" th:each="event : ${events}">
                 <article class="event-card p-4">

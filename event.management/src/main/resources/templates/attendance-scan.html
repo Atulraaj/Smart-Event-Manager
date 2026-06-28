@@ -183,7 +183,7 @@
             <div class="col-lg-8">
                 <p class="text-uppercase fw-semibold small mb-3">Admin Workspace</p>
                 <h1 class="display-6 fw-bold mb-3">QR Attendance Scan</h1>
-                <p class="fs-5 mb-0">Paste scanned QR content to mark attendance for a registration.</p>
+                <p class="fs-5 mb-0">Scan a user QR code or paste the QR content to mark attendance for a registration.</p>
             </div>
             <div class="col-lg-4 text-lg-end">
                 <a class="btn btn-light btn-lg fw-semibold" th:href="@{/admin/attendance}">
@@ -201,7 +201,7 @@
                 </span>
                 <div>
                     <h2 class="h3 fw-bold mb-1">Camera Scanner</h2>
-                    <p class="text-muted-custom mb-0">Open user QR code and scan it to mark attendance.</p>
+                    <p class="text-muted-custom mb-0">Open user QR code and scan it to mark attendance. Camera scanning works best after deployment over HTTPS.</p>
                 </div>
             </div>
 
@@ -214,7 +214,7 @@
                     <button class="btn btn-primary btn-lg px-4" id="startScannerButton" type="button">
                         <i class="bi bi-camera me-2"></i>Start Camera Scan
                     </button>
-                    <span class="text-muted-custom small">Allow camera access when your browser asks.</span>
+                    <span class="text-muted-custom small">Allow camera access when your browser asks. Use manual input if the camera is unavailable.</span>
                 </div>
                 <div class="d-none" id="qr-reader"></div>
             </div>
