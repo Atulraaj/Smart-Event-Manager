@@ -1,5 +1,169 @@
 # Smart Event Management Portal
 
-Smart Event Management Portal is a web-based application designed to simplify event organization and participation. The system allows administrators to create and manage events, while users can register for events, track attendance through QR-based verification, and submit feedback after participation.
+A full-stack web application built using **Java 21, Spring Boot 3, Thymeleaf, PostgreSQL, Spring Security, Bootstrap 5, and Maven**.
 
-Built using Java 21, Spring Boot, PostgreSQL, Thymeleaf, Bootstrap, and Spring Security, the project follows a layered architecture with JPA/Hibernate for database management and is designed to be deployable on cloud platforms such as Render.
+This project helps colleges or organizations manage events, user registrations, attendance, QR-based attendance, feedback, and reports from a single portal.
+
+## Features
+
+### Authentication
+
+* User Registration
+* Login
+* BCrypt Password Encryption
+* Role-Based Access Control
+* Admin and User Dashboard Redirect
+
+### Admin Features
+
+* Manage Events
+* View Event Registrations
+* Mark Attendance
+* QR Code Attendance
+* View Feedback
+* View Reports
+* Dashboard Summary
+
+### User Features
+
+* View Events
+* Register for Events
+* View My Registrations
+* Submit Feedback
+* Duplicate Registration Prevention
+* Duplicate Feedback Prevention
+
+### Reports Module
+
+* Total Users
+* Total Events
+* Total Registrations
+* Total Attendance
+* Total Feedback
+* Event-wise Registration Report
+
+## Tech Stack
+
+* Java 21
+* Spring Boot 3
+* Spring Security
+* Spring Data JPA
+* Thymeleaf
+* Bootstrap 5
+* PostgreSQL
+* H2 Database Demo Profile
+* Maven
+* Docker
+* Docker Compose
+
+## Default Admin Login
+
+Use the following credentials for admin access:
+
+```text
+Email: admin@event.com
+Password: Admin@123
+```
+
+## How to Run the Project Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/smart-event-management-portal.git
+cd smart-event-management-portal
+```
+
+### 2. Run Using H2 Demo Profile
+
+This is the easiest way to run the project for demo or presentation.
+
+```powershell
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=demo"
+```
+
+### 3. Open in Browser
+
+```text
+http://localhost:8080
+```
+
+## Demo Profile Details
+
+The demo profile uses an in-memory H2 database, so no PostgreSQL setup is required.
+
+The project automatically creates:
+
+* Default Admin User
+* Sample Event Data
+
+## PostgreSQL Setup
+
+For normal development, configure your database details in:
+
+```text
+src/main/resources/application.properties
+```
+
+Example:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/eventdb
+spring.datasource.username=postgres
+spring.datasource.password=your_password
+```
+
+## Docker Support
+
+Dockerfile and Docker Compose files are included.
+
+To run using Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Note: Docker Desktop must be installed and running before using this command.
+
+## Project Structure
+
+```text
+src/main/java/com/atul/event/management
+│
+├── config
+├── controller
+├── entity
+├── repository
+├── service
+└── SmartEventManagementApplication.java
+```
+
+## Screenshots
+
+Screenshots will be added soon.
+
+Recommended screenshots:
+
+* Login Page
+* Register Page
+* Admin Dashboard
+* User Dashboard
+* Event List
+* Event Registration
+* Attendance Page
+* Feedback Page
+* Reports Page
+
+## Future Enhancements
+
+* Email Notification System
+* Payment Integration
+* Event Certificate Generation
+* Advanced Analytics Dashboard
+* Export Reports as PDF or Excel
+* Cloud Deployment
+
+
+## License
+
+This project is created for academic learning and demonstration purposes.
