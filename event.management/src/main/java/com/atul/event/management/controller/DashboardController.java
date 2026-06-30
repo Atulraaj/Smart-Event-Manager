@@ -15,4 +15,9 @@ public class DashboardController {
     public String adminDashboard() {
         return "admin-dashboard";
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/login";
+    }
 }
