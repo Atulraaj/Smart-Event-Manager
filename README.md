@@ -56,14 +56,12 @@ This project helps colleges or organizations manage events, user registrations, 
 * Docker
 * Docker Compose
 
-## Default Admin Login
+## Demo Admin Login
 
-Use the following credentials for admin access:
+These credentials are only for the local demo profile.
 
-```text
-Email: admin@event.com
+Email: admin@event.com  
 Password: Admin@123
-```
 
 ## How to Run the Project Locally
 
@@ -142,17 +140,7 @@ src/main/java/com/atul/event/management
 
 Screenshots will be added soon.
 
-Recommended screenshots:
 
-* Login Page
-* Register Page
-* Admin Dashboard
-* User Dashboard
-* Event List
-* Event Registration
-* Attendance Page
-* Feedback Page
-* Reports Page
 
 ## Future Enhancements
 
